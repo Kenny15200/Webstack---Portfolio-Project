@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Express Partnership Interest</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Express Partnership Interest</h1>
+    <form id="partnershipForm">
+      <div class="mb-3">
+        <label for="userId" class="form-label">User ID</label>
+        <input type="text" class="form-control" id="userId" name="userId" required>
+      </div>
+      <div class="mb-3">
+        <label for="investmentId" class="form-label">Investment ID</label>
+        <input type="text" class="form-control" id="investmentId" name="investmentId" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Express Interest</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('partnershipForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('userId').value;
+      const investmentId = document.getElementById('investmentId').value;
+      const response = await fetch('/investments/partnerships', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, investmentId }),
+      });
+      const data = await response.json();
+      alert('Interest expressed successfully!');
+    });
+  </script>
+</body>
+</html>

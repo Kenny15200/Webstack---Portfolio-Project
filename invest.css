@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency - Omaop Real Estate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="agency.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .form-row .mb-3 {
+        flex: 1 1 30%;
+        min-width: 250px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    .form-row .mb-3:last-child {
+        margin-right: 0;
+    }
+    
+</style>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="img/omaop_logo.png" class="logo-img" alt="">Omaop Real Estate</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li><a class="dropdown-item" href="#">About us</a></li>
+                <li><a class="dropdown-item" href="#">Meet our team</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="#" id="agencyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Agency
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="agencyDropdown">
+                <li><a class="dropdown-item" href="#">Property Consultancy</a></li>
+                <li><a class="dropdown-item" href="#">Caretaker</a></li>
+                <li><a class="dropdown-item" href="#facility">Facility Management</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="#" id="propertyDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Property Development
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="propertyDevelopmentDropdown">
+                <li><a class="dropdown-item" href="#">Joint Venture</a></li>
+                <li><a class="dropdown-item" href="#">Lease Property</a></li>
+                <li><a class="dropdown-item" href="#">Investment</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="#" id="getQuoteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Appointment
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="getQuoteDropdown">
+                <li><a class="dropdown-item" href="#">Schedule</a></li>
+                <li><a class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="#" id="getQuoteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Register
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="getQuoteDropdown">
+                <li><a class="dropdown-item" href="#">Register</a></li>
+                <li><a class="dropdown-item" href="#">Sign in</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section bg-light" id="property-consultancy">
+      <div class="container">
+          <h2 class="section-title" id="property">Property Consultancy</h2>
+          <div class="section-content">
+              <p>At Omaop Real Estate, our Property Consultancy services are designed to provide clients with expert advice and insights into the real estate market. Whether you're looking to buy, sell, or invest in property, our team of experienced consultants is here to guide you every step of the way. We conduct thorough market analysis, offer strategic investment advice, and help you make informed decisions to maximize your returns.</p>
+          </div>
+          <form id="consultancyForm">
+              <div class="form-row">
+
+                  <div class="mb-3">
+                      <label for="userEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="userEmail" name="userEmail" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="userPhone" class="form-label">Phone</label>
+                      <input type="tel" class="form-control" id="userPhone" name="userPhone" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="propertyType" class="form-label">Property Type</label>
+                      <input type="text" class="form-control" id="propertyType" name="propertyType" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="message" class="form-label">Message</label>
+                      <textarea class="form-control" id="message" name="message" required></textarea>
+                  </div>
+                  <div class="mb-3">
+                      <label for="appointmentDate" class="form-label">Appointment Date</label>
+                      <input type="date" class="form-control" id="appointmentDate" name="appointmentDate" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="appointmentTime" class="form-label">Appointment Time</label>
+                      <input type="time" class="form-control" id="appointmentTime" name="appointmentTime" required>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+          </form>
+          <div id="services"></div>
+      </div>
+  </section>
+  
+  <script>
+      document.getElementById('consultancyForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const userId = document.getElementById('userId').value;
+          const userEmail = document.getElementById('userEmail').value;
+          const userPhone = document.getElementById('userPhone').value;
+          const propertyType = document.getElementById('propertyType').value;
+          const message = document.getElementById('message').value;
+          const appointmentDate = document.getElementById('appointmentDate').value;
+          const appointmentTime = document.getElementById('appointmentTime').value;
+          
+          const response = await fetch('/consultancy/schedule', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ userId, userEmail, userPhone, propertyType, message, appointmentDate, appointmentTime }),
+          });
+          const data = await response.json();
+          alert('Appointment scheduled successfully!');
+      });
+  
+      document.addEventListener('DOMContentLoaded', async () => {
+          const response = await fetch('/consultancy/services');
+          const services = await response.json();
+          const servicesDiv = document.getElementById('services');
+          servicesDiv.innerHTML = services.map(service => `
+              <div class="service">
+                  <p>User ID: ${service.userId}</p>
+                  <p>Email: ${service.userEmail}</p>
+                  <p>Phone: ${service.userPhone}</p>
+                  <p>Property Type: ${service.propertyType}</p>
+                  <p>Message: ${service.message}</p>
+                  <p>Appointment Date: ${service.appointmentDate}</p>
+                  <p>Appointment Time: ${service.appointmentTime}</p>
+              </div>
+          `).join('');
+      });
+  </script>
+  
+        
+        </div>
+        </div>
+    </section>
+
+    <section class="section" id="caretaker">
+        <div class="container">
+            <h2 class="section-title" id="care-service">Caretaker Services</h2>
+            <div class="section-content">
+                <p>Our Caretaker Services at Omaop Real Estate ensure that your property is well-maintained and looked after, whether you are near or far. We provide a range of services including regular inspections, maintenance management, and tenant liaison. Our goal is to give you peace of mind, knowing that your property is in safe hands and being cared for by professionals.</p>
+            </div>
+            <form id="caretakerForm">
+              <div class="mb-3">
+                <label for="userId" class="form-label">User ID</label>
+                <input type="text" class="form-control" id="userId" name="userId" required>
+              </div>
+              <div class="mb-3">
+                <label for="propertyId" class="form-label">Property Type</label>
+                <input type="text" class="form-control" id="propertytype" name="propertyId" required>
+              </div>
+              <div class="mb-3">
+                <label for="duration" class="form-label">Duration (years)</label>
+                <input type="number" class="form-control" id="duration" name="duration" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Request Service</button>
+            </form>
+            <div id="services"></div>
+          </div>
+        
+          <script>
+            document.getElementById('caretakerForm').addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const userId = document.getElementById('userId').value;
+              const propertyId = document.getElementById('propertyId').value;
+              const duration = document.getElementById('duration').value;
+              const response = await fetch('/caretaker/request', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId, propertyType, duration }),
+              });
+              const data = await response.json();
+              alert('Caretaker service requested successfully!');
+            });
+        
+            document.addEventListener('DOMContentLoaded', async () => {
+              const response = await fetch('/caretaker/services');
+              const services = await response.json();
+              const servicesDiv = document.getElementById('services');
+              servicesDiv.innerHTML = services.map(service => `
+                <div class="service">
+                  <p>User ID: ${service.user_id}</p>
+                  <p>Property ID: ${service.property_Type}</p>
+                  <p>Duration: ${service.duration} years</p>
+                </div>
+              `).join('');
+            });
+          </script>
+        
+        </div>
+    </section>
+
+
+            <section class="section bg-light" id="facility-management">
+              <div class="container">
+                  <h2 class="section-title" id="facility">Facility Management</h2>
+                  <div class="section-content">
+                      <p>Omaop Real Estate's Facility Management services are tailored to ensure the efficient and smooth operation of your properties. We handle everything from routine maintenance to emergency repairs, ensuring that your property remains in optimal condition. Our team works diligently to create a safe, clean, and well-maintained environment for occupants, enhancing the overall value and functionality of your property.</p>
+                  </div>
+                  <form id="facilityManagementForm">
+                      <div class="form-row">
+                          <div class="mb-3">
+                              <label for="userEmail" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="userEmail" name="userEmail" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="userPhone" class="form-label">Phone</label>
+                              <input type="tel" class="form-control" id="userPhone" name="userPhone" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="propertyType" class="form-label">Property Type</label>
+                              <input type="text" class="form-control" id="propertyType" name="propertyType" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="message" class="form-label">Message</label>
+                              <textarea class="form-control" id="message" name="message" required></textarea>
+                          </div>
+                          <div class="mb-3">
+                              <label for="appointmentDate" class="form-label">Appointment Date</label>
+                              <input type="date" class="form-control" id="appointmentDate" name="appointmentDate" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="appointmentTime" class="form-label">Appointment Time</label>
+                              <input type="time" class="form-control" id="appointmentTime" name="appointmentTime" required>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+                  </form>
+                  <div id="services"></div>
+              </div>
+          </section>
+          
+          <script>
+              document.getElementById('facilityManagementForm').addEventListener('submit', async (e) => {
+                  e.preventDefault();
+                  const userId = document.getElementById('userId').value;
+                  const userEmail = document.getElementById('userEmail').value;
+                  const userPhone = document.getElementById('userPhone').value;
+                  const propertyType = document.getElementById('propertyType').value;
+                  const message = document.getElementById('message').value;
+                  const appointmentDate = document.getElementById('appointmentDate').value;
+                  const appointmentTime = document.getElementById('appointmentTime').value;
+                  
+                  const response = await fetch('/facility-management/schedule', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ userId, userEmail, userPhone, propertyType, message, appointmentDate, appointmentTime }),
+                  });
+                  const data = await response.json();
+                  alert('Appointment scheduled successfully!');
+              });
+          
+              document.addEventListener('DOMContentLoaded', async () => {
+                  const response = await fetch('/facility-management/services');
+                  const services = await response.json();
+                  const servicesDiv = document.getElementById('services');
+                  servicesDiv.innerHTML = services.map(service => `
+                      <div class="service">
+                          <p>User ID: ${service.userId}</p>
+                          <p>Email: ${service.userEmail}</p>
+                          <p>Phone: ${service.userPhone}</p>
+                          <p>Property Type: ${service.propertyType}</p>
+                          <p>Message: ${service.message}</p>
+                          <p>Appointment Date: ${service.appointmentDate}</p>
+                          <p>Appointment Time: ${service.appointmentTime}</p>
+                      </div>
+                  `).join('');
+              });
+          </script>
+          
+        </div>
+    </section>
+  </main>
+
+  <footer class="bg-danger text-white pt-4 pb-2">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <h5>About Us</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-white">Our Story</a></li>
+                      <li><a href="#" class="text-white">Meet the Team</a></li>
+                      <li><a href="#" class="text-white">Careers</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Services</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-white">Property Consultancy</a></li>
+                      <li><a href="#" class="text-white">Caretaker</a></li>
+                      <li><a href="#" class="text-white">Facility Management</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Contact Us</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-white">Get in Touch</a></li>
+                      <li><a href="#" class="text-white">Support</a></li>
+                      <li><a href="#" class="text-white">FAQs</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-white">Home</a></li>
+                      <li><a href="#" class="text-white">About</a></li>
+                      <li><a href="#" class="text-white">Services</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="text-center pt-3">
+              <p>&copy; 2024 Omaop Real Estate. All Rights Reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

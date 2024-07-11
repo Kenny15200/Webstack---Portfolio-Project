@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Submit Proposal</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Submit Proposal</h1>
+    <form id="proposalForm">
+      <div class="mb-3">
+        <label for="userId" class="form-label">User ID</label>
+        <input type="text" class="form-control" id="userId" name="userId" required>
+      </div>
+      <div class="mb-3">
+        <label for="proposalDetails" class="form-label">Proposal Details</label>
+        <textarea class="form-control" id="proposalDetails" name="proposalDetails" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('proposalForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('userId').value;
+      const proposalDetails = document.getElementById('proposalDetails').value;
+      const response = await fetch('/projects/proposals', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, proposalDetails }),
+      });
+      const data = await response.json();
+      alert('Proposal submitted successfully!');
+    });
+  </script>
+</body>
+</html>

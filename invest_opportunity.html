@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Investment Opportunities</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Investment Opportunities</h1>
+    <div id="opportunities"></div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const response = await fetch('/investments/opportunities');
+      const opportunities = await response.json();
+      const opportunitiesDiv = document.getElementById('opportunities');
+      opportunitiesDiv.innerHTML = opportunities.map(opportunity => `
+        <div class="opportunity">
+          <h2>${opportunity.name}</h2>
+          <p>${opportunity.description}</p>
+          <p>Amount: ${opportunity.amount}</p>
+          <p>ROI: ${opportunity.roi}%</p>
+          <p>Tenure: ${opportunity.tenure} years</p>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Facility Management Services</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Facility Management Services</h1>
+    <div id="services"></div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const response = await fetch('/facility/services');
+      const services = await response.json();
+      const servicesDiv = document.getElementById('services');
+      servicesDiv.innerHTML = services.map(service => `
+        <div class="service">
+          <h2>${service.name}</h2>
+          <p>${service.description}</p>
+          <p>Property ID: ${service.property_id}</p>
+          <button class="btn btn-primary" onclick="requestService(${service.id})">Request Service</button>
+        </div>
+      `).join('');
+    });
+
+    async function requestService(serviceId) {
+      const userId = prompt('Please enter your User ID:');
+      if (userId) {
+        const response = await fetch('/facility/request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId, serviceId }),
+        });
+        const data = await response.json();
+        alert('Service requested successfully!');
+      }
+    }
+  </script>
+</body>
+</html>

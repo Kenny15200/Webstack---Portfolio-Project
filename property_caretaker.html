@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Caretaker Services</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Caretaker Services</h1>
+    <form id="caretakerForm">
+      <div class="mb-3">
+        <label for="userId" class="form-label">User ID</label>
+        <input type="text" class="form-control" id="userId" name="userId" required>
+      </div>
+      <div class="mb-3">
+        <label for="propertyId" class="form-label">Property ID</label>
+        <input type="text" class="form-control" id="propertyId" name="propertyId" required>
+      </div>
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duration (years)</label>
+        <input type="number" class="form-control" id="duration" name="duration" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Request Service</button>
+    </form>
+    <div id="services"></div>
+  </div>
+
+  <script>
+    document.getElementById('caretakerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('userId').value;
+      const propertyId = document.getElementById('propertyId').value;
+      const duration = document.getElementById('duration').value;
+      const response = await fetch('/caretaker/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, propertyId, duration }),
+      });
+      const data = await response.json();
+      alert('Caretaker service requested successfully!');
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const response = await fetch('/caretaker/services');
+      const services = await response.json();
+      const servicesDiv = document.getElementById('services');
+      servicesDiv.innerHTML = services.map(service => `
+        <div class="service">
+          <p>User ID: ${service.user_id}</p>
+          <p>Property ID: ${service.property_id}</p>
+          <p>Duration: ${service.duration} years</p>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

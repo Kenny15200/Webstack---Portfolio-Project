@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Request Facility Management Service</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Request Facility Management Service</h1>
+    <form id="serviceRequestForm">
+      <div class="mb-3">
+        <label for="userId" class="form-label">User ID</label>
+        <input type="text" class="form-control" id="userId" name="userId" required>
+      </div>
+      <div class="mb-3">
+        <label for="serviceId" class="form-label">Service ID</label>
+        <input type="text" class="form-control" id="serviceId" name="serviceId" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Request Service</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('serviceRequestForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('userId').value;
+      const serviceId = document.getElementById('serviceId').value;
+      const response = await fetch('/facility/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, serviceId }),
+      });
+      const data = await response.json();
+      alert('Service requested successfully!');
+    });
+  </script>
+</body>
+</html>

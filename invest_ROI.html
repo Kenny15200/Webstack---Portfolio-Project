@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Return on Investment (ROI)</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Return on Investment (ROI)</h1>
+    <form id="roiForm">
+      <div class="mb-3">
+        <label for="investmentId" class="form-label">Investment ID</label>
+        <input type="text" class="form-control" id="investmentId" name="investmentId" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calculate ROI</button>
+    </form>
+    <div id="roiDetails"></div>
+  </div>
+
+  <script>
+    document.getElementById('roiForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const investmentId = document.getElementById('investmentId').value;
+      const response = await fetch(`/investments/roi/${investmentId}`);
+      const { investment, roiAmount } = await response.json();
+      const roiDetailsDiv = document.getElementById('roiDetails');
+      roiDetailsDiv.innerHTML = `
+        <div class="investment-details">
+          <h2>${investment.name}</h2>
+          <p>${investment.description}</p>
+          <p>Amount: ${investment.amount}</p>
+          <p>ROI: ${investment.roi}%</p>
+          <p>Tenure: ${investment.tenure} years</p>
+          <p>Estimated ROI Amount: ${roiAmount}</p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    .project {
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .project h2 {
+      font-size: 1.5rem;
+      color: #333333;
+    }
+    .project p {
+      color: #666666;
+    }
+  </style>
+  <title>Ongoing Projects</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4">Ongoing Projects</h1>
+    
+    <form id="projectForm" class="mb-4">
+      <div class="mb-3">
+        <label for="name" class="form-label">Project Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="start_date" class="form-label">Start Date</label>
+        <input type="date" class="form-control" id="start_date" required>
+      </div>
+      <div class="mb-3">
+        <label for="end_date" class="form-label">End Date</label>
+        <input type="date" class="form-control" id="end_date" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Project</button>
+    </form>
+
+    <div id="projects"></div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadProjects();
+
+      const projectForm = document.getElementById('projectForm');
+      projectForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const project = {
+          name: document.getElementById('name').value,
+          description: document.getElementById('description').value,
+          start_date: document.getElementById('start_date').value,
+          end_date: document.getElementById('end_date').value,
+        };
+        
+        try {
+          const response = await fetch('/projects/ongoing', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+          });
+
+          if (response.ok) {
+            projectForm.reset();
+            await loadProjects();
+          } else {
+            console.error('Failed to add project');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      });
+    });
+
+    async function loadProjects() {
+      try {
+        const response = await fetch('/projects/ongoing');
+        const projects = await response.json();
+        const projectsDiv = document.getElementById('projects');
+        projectsDiv.innerHTML = projects.map(project => `
+          <div class="project card mb-3">
+            <div class="card-body">
+              <h2 class="card-title">${project.name}</h2>
+              <p class="card-text">${project.description}</p>
+              <p class="card-text"><small class="text-muted">Start Date: ${project.start_date}</small></p>
+              <p class="card-text"><small class="text-muted">End Date: ${project.end_date}</small></p>
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        document.getElementById('projects').innerHTML = '<p class="text-danger">Failed to load projects.</p>';
+      }
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/js/bootstrap.min.js"></script>
+</body>
+</html>

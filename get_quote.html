@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <title>Get Investment Returns Quote</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Get Investment Returns Quote</h1>
+    <form id="investmentQuoteForm">
+      <div class="mb-3">
+        <label for="propertyId" class="form-label">Property ID</label>
+        <input type="text" class="form-control" id="propertyId" name="propertyId" required>
+      </div>
+      <div class="mb-3">
+        <label for="investmentAmount" class="form-label">Investment Amount</label>
+        <input type="number" class="form-control" id="investmentAmount" name="investmentAmount" required>
+      </div>
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duration (years)</label>
+        <input type="number" class="form-control" id="duration" name="duration" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Get Quote</button>
+    </form>
+    <div id="investmentQuote"></div>
+  </div>
+
+  <script>
+    document.getElementById('investmentQuoteForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const propertyId = document.getElementById('propertyId').value;
+      const investmentAmount = document.getElementById('investmentAmount').value;
+      const duration = document.getElementById('duration').value;
+      const response = await fetch('/quotes/investment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ propertyId, investmentAmount, duration }),
+      });
+      const data = await response.json();
+      const investmentQuoteDiv = document.getElementById('investmentQuote');
+      investmentQuoteDiv.innerHTML = `
+        <div class="quote-details">
+          <p>Property ID: ${data.propertyId}</p>
+          <p>Investment Amount: ${data.investmentAmount}</p>
+          <p>Duration: ${data.duration} years</p>
+          <p>Estimated Return Amount: ${data.returnAmount}</p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
