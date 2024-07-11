@@ -13,6 +13,21 @@
   <link rel="stylesheet" href="agency.css">
 
 </head>
+<style>
+      .container {
+      margin-top: 50px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .form-container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+</style>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
@@ -66,7 +81,7 @@
                 Register
               </a>
               <ul class="dropdown-menu" aria-labelledby="getQuoteDropdown">
-                <li><a class="dropdown-item" href="\public\index.html">Register </a></li>
+                <li><a class="dropdown-item" href="/Webstack---Portfolio-Project/public/index.html">Register </a></li>
                 <li><a class="dropdown-item" href="#">Sign in</a></li>
               </ul>
             </li>
@@ -494,7 +509,7 @@
         </div>
         <div class="card">
           <div class="card-body">
-            <img src="img/family-moving-countryside-area-realtor-shows-townhouse-house-rent-booking-hose-online-best-rental-property-real-estate-services-concept-bright-vibrant-violet-isolated-illustration_335657-1129.jpg" width="200px" alt="">
+            <img src="img/family-moving.jpg" width="200px" alt="">
            <h4><a href="#" class="text-danger  text-decoration-none">Rent a Home</a></h2> 
             <br><br>A real estate agent can provide you with a clear breakdown of costs so that you can avoid surprise expenses.
           </div>
@@ -553,6 +568,60 @@
           
       </div>
   </div>
+
+  <div class="container">
+    <div class="grid-container">
+      <!-- Schedule Appointment Form -->
+      <div class="form-container">
+        <h2>Schedule Appointment</h2>
+        <form id="scheduleAppointmentForm">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" required>
+          </div>
+          <div class="mb-3">
+            <label for="appointmentDate" class="form-label">Appointment Date</label>
+            <input type="date" class="form-control" id="appointmentDate" required>
+          </div>
+          <div class="mb-3">
+            <label for="appointmentTime" class="form-label">Appointment Time</label>
+            <input type="time" class="form-control" id="appointmentTime" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Schedule</button>
+        </form>
+      </div>
+
+      <!-- Contact Us Form -->
+      <div class="form-container">
+        <h2>Contact Us</h2>
+        <form id="contactUsForm">
+          <div class="mb-3">
+            <label for="contactFullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="contactFullName" required>
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="contactEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
 
 
 
