@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Omaop Real Estate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="anime.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="agency.css">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="img/omaop_logo.png" class="logo-img" alt="">Omaop Real Estate</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="https://omaop.com.ng" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li><a class="dropdown-item" href="#">About us</a></li>
+                <li><a class="dropdown-item" href="#">meet our team</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="https://omaop.com.ng" id="agencyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Agency
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="agencyDropdown">
+                <li><a class="dropdown-item" href="agency.html#property">Property Consultancy</a></li>
+                <li><a class="dropdown-item" href="agency.html#care-service">Caretaker</a></li>
+                <li><a class="dropdown-item" href="agency.html#facility">Facility Management</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="https://omaop.com.ng" id="propertyDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Property Development
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="propertyDevelopmentDropdown">
+                <li><a class="dropdown-item" href="#">Joint Venture</a></li>
+                <li><a class="dropdown-item" href="#">Lease Property</a></li>
+                <li><a class="dropdown-item" href="#">Investment</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="https://omaop.com.ng" id="getQuoteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Appointment
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="getQuoteDropdown">
+                <li><a class="dropdown-item" href="#">Schedule</a></li>
+                <li><a class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 10px;">
+              <a class="nav-link dropdown-toggle" href="https://omaop.com.ng" id="getQuoteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Register
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="getQuoteDropdown">
+                <li><a class="dropdown-item" href="#">Register </a></li>
+                <li><a class="dropdown-item" href="#">Sign in</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1 class="ml6">
+      <span class="text-wrapper">
+        <span class="letters">Find your new property</span>
+      </span>
+    </h1>
+    <h1 class="ml11">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters"> Rent without stress!</span>
+      </span>
+    </h1>
+    <h2 class="highlight"></h2>
+    <div class="container mt-5">
+      <h2></h2>
+      <form class="row g-3">
+        <div class="col-auto">
+          <label for="propertyPurpose" class="col-form-label"></label>
+          <div class="btn-group" role="group" aria-label="Property purpose">
+            <input type="radio" class="btn-check" name="propertyPurpose" id="buy" autocomplete="off" checked>
+            <label class="btn btn-outline-danger" style="border-color: white; font-weight:900; font-size: larger;" for="buy">Buy</label>
+    
+            <input type="radio" class="btn-check" name="propertyPurpose" id="rent" autocomplete="off">
+            <label class="btn btn-outline-danger" style="border-color: white; font-weight:900; font-size: larger;"  for="rent">Rent</label>
+    
+            <input type="radio" class="btn-check" name="propertyPurpose" id="shortLet" autocomplete="off">
+            <label class="btn btn-outline-danger"style="border-color: white; font-weight:900; font-size: larger;"  for="shortLet">Short Let</label>
+          </div>
+        </div>
+        
+    
+        <div class="col-auto">
+          <label for="location" class="col-form-label">Enter a state, locality or area</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter location">
+        </div>
+    
+        <div class="col-auto">
+          <label for="propertyType" class="col-form-label">Type</label>
+          <select class="form-control" id="propertyType">
+            <option>All Types</option>
+            <option>Apartment</option>
+            <option>House</option>
+            <option>Land</option>
+            <option>Commercial</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label for="bedrooms" class="col-form-label">Bedrooms</label>
+          <select class="form-control" id="bedrooms">
+            <option>Any</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5+</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label for="minPrice" class="col-form-label">Min price</label>
+          <select class="form-control" id="minPrice">
+            <option>No Min</option>
+            <option>$500</option>
+            <option>$1,000</option>
+            <option>$5,000</option>
+            <option>$10,000</option>
+            <option>$50,000</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label for="maxPrice" class="col-form-label">Max price</label>
+          <select class="form-control" id="maxPrice">
+            <option>No Max</option>
+            <option>$500</option>
+            <option>$1,000</option>
+            <option>$5,000</option>
+            <option>$10,000</option>
+            <option>$50,000</option>
+            <option>$100,000</option>
+          </select>
+        </div>
+    
+        <div class="col-auto">
+          <a class="btn btn-link" data-bs-toggle="collapse" href="#moreOptions" role="button" aria-expanded="false" aria-controls="moreOptions" style="text-decoration: none; color: white; background-color: red;">Advance Search</a>
+        </div>
+    
+        <div class="collapse" id="moreOptions">
+          <div class="card card-body">
+            <div class="form-group">
+              <label for="furnishing">Furnishing</label>
+              <select class="form-control" id="furnishing">
+                <option>Any</option>
+                <option>Furnished</option>
+                <option>Unfurnished</option>
+              </select>
+            </div>
+    
+            <div class="form-group">
+              <label for="serviced">Serviced</label>
+              <select class="form-control" id="serviced">
+                <option>Any</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+    
+            <div class="form-group">
+              <label for="shared">Shared</label>
+              <select class="form-control" id="shared">
+                <option>Any</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+    
+            <div class="form-group">
+              <label for="added">Added to site</label>
+              <select class="form-control" id="added">
+                <option>Anytime</option>
+                <option>Last 24 Hours</option>
+                <option>Last 3 Days</option>
+                <option>Last 7 Days</option>
+                <option>Last 14 Days</option>
+                <option>Last 30 Days</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+
+
+
+  </header>
+
+  <div class="container mt-5">
+    <h2>Browse Properties by Popular States</h2>
+    <div id="popularStatesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Lagos">
+                <img src="img/Lagos_city.jpg" alt="Lagos" class="img-fluid">
+                <h5 class="text-center">Lagos</h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Abuja">
+                <img src="img/Fraser Suites Abuja_Pool.jpg" alt="Abuja" class="img-fluid">
+                <h5 class="text-center">Abuja</h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Kano">
+                <img src="img/4235016_kano_jpeg252f0ecc0587a5a152b738846356e1a5.jpg" alt="Kano" class="img-fluid">
+                <h5 class="text-center">Kano</h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Rivers">
+                <img src="img/Port-Harcourt-01.jpg" alt="Rivers" class="img-fluid">
+                <h5 class="text-center">Rivers</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Oyo">
+                <img src="img/the-most-beautiful-city-oyo.jpg" alt="Oyo" class="img-fluid">
+                <h5 class="text-center">Oyo</h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Kaduna">
+                <img src="img/kaduna_city.jpg" alt="Kaduna" class="img-fluid">
+                <h5 class="text-center">Kaduna</h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Enugu">
+                <img src="img/aerial-view-enugu-state-secretariat-260nw-1993456217.webp" alt="Enugu" class="img-fluid">
+                <h5 class="text-center">Enugu</h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/calabar.jpg" alt="Cross River" class="img-fluid">
+                <h5 class="text-center">Cross River</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more carousel-item divs for additional states if needed -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#popularStatesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#popularStatesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+ 
+
+  <div class="container">
+    <h2 class="mt-5">Filter by State</h2>
+    <ul class="state-list">
+      <li class="visible"><a href="listing.html?state=Abia">Abia</a></li>
+      <li class="visible"><a href="listing.html?state=Adamawa">Adamawa</a></li>
+      <li class="visible"><a href="listing.html?state=Akwa Ibom">Akwa Ibom</a></li>
+      <li class="visible"><a href="listing.html?state=Anambra">Anambra</a></li>
+      <li class="visible"><a href="listing.html?state=Bauchi">Bauchi</a></li>
+      <li class="visible"><a href="listing.html?state=Bayelsa">Bayelsa</a></li>
+      <li class="visible"><a href="listing.html?state=Benue">Benue</a></li>
+      <li class="visible"><a href="listing.html?state=Borno">Borno</a></li>
+      <li><a href="listing.html?state=Cross River">Cross River</a></li>
+      <li><a href="listing.html?state=Delta">Delta</a></li>
+      <li><a href="listing.html?state=Ebonyi">Ebonyi</a></li>
+      <li><a href="listing.html?state=Edo">Edo</a></li>
+      <li><a href="listing.html?state=Ekiti">Ekiti</a></li>
+      <li><a href="listing.html?state=Enugu">Enugu</a></li>
+      <li><a href="listing.html?state=Gombe">Gombe</a></li>
+      <li><a href="listing.html?state=Imo">Imo</a></li>
+      <li><a href="listing.html?state=Jigawa">Jigawa</a></li>
+      <li><a href="listing.html?state=Kaduna">Kaduna</a></li>
+      <li><a href="listing.html?state=Kano">Kano</a></li>
+      <li><a href="listing.html?state=Katsina">Katsina</a></li>
+      <li><a href="listing.html?state=Kebbi">Kebbi</a></li>
+      <li><a href="listing.html?state=Kogi">Kogi</a></li>
+      <li><a href="listing.html?state=Kwara">Kwara</a></li>
+      <li><a href="listing.html?state=Lagos">Lagos</a></li>
+      <li><a href="listing.html?state=Nasarawa">Nasarawa</a></li>
+      <li><a href="listing.html?state=Niger">Niger</a></li>
+      <li><a href="listing.html?state=Ogun">Ogun</a></li>
+      <li><a href="listing.html?state=Ondo">Ondo</a></li>
+      <li><a href="listing.html?state=Osun">Osun</a></li>
+      <li><a href="listing.html?state=Oyo">Oyo</a></li>
+      <li><a href="listing.html?state=Plateau">Plateau</a></li>
+      <li><a href="listing.html?state=Rivers">Rivers</a></li>
+      <li><a href="listing.html?state=Sokoto">Sokoto</a></li>
+      <li><a href="listing.html?state=Taraba">Taraba</a></li>
+      <li><a href="listing.html?state=Yobe">Yobe</a></li>
+      <li><a href="listing.html?state=Zamfara">Zamfara</a></li>
+    </ul>
+    <button id="toggleButton" class="btn btn-primary mt-5">Show More</button>
+  </div>
+
+  <!-- Example Listing Page -->
+  <div class="container mt-5">
+    <h2>Available Properties in Lagos</h2>
+    <div class="row">
+      <div class="col-md-6 property-card">
+        <img src="img/Real-Estate2-in-lagos.jpg" alt="Property 1">
+        <h5>Property 1</h5>
+        <p>Type: Rent</p>
+        <p>Price: 1,000/month</p>
+      </div>
+      <div class="col-md-6 property-card">
+        <img src="img/Real-estate3-in lagos.jpg" Property 2">
+        <h5>Property 2</h5>
+        <p>Type: Buy</p>
+        <p>Price: 200,000</p>
+      </div>
+
+      <div class="col-md-6 property-card">
+        <img src="img/Real-estate-in lagos.jpg"Property 2">
+        <h5>Property 3</h5>
+        <p>Type: Buy</p>
+        <p>Price: 200,000</p>
+      </div>
+      <div class="col-md-6 property-card">
+        <img src="img/abuja-real-estate.jpg"Property 2">
+        <h5>Property 2</h5>
+        <p>Type: Buy</p>
+        <p>Price: 200,000</p>
+      </div>
+      <!-- Add more property cards here -->
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h2>Meet Real Estate Partners, Agents And Developers</h2>
+    <div id="popularStatesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Lagos">
+                <img src="img/jdc.png" alt="Lagos" width="20px" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Abuja">
+                <img src="img/pwan.png" alt="Abuja" width="20px" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Kano">
+                <img src="img/adron.png" alt="Kano" width="20px" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Rivers">
+                <img src="img/dukiya.png" alt="Rivers" width="20px" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Oyo">
+                <img src="img/haven.png" alt="Oyo" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Kaduna">
+                <img src="img/infinity.png" alt="Kaduna" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Enugu">
+                <img src="img/landwey.png" alt="Enugu" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/lekki garden.png" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/infinity.png" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/mixta.jpeg" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/octo5.png" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/periwinkle.jpeg" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/upadc.png" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/revolution.jpeg" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            <div class="col-md-3 state-card">
+              <a href="listing.html?state=Cross River">
+                <img src="img/prime.jpeg" alt="Cross River" class="img-fluid">
+                <h5 class="text-center"></h5>
+              </a>
+            </div>
+            
+            
+          </div>
+        </div>
+        <!-- Add more carousel-item divs for additional states if needed -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#popularStatesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#popularStatesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container">
+      <h1 class="text-center my-4">What are you looking for?</h1>
+      <div class="grid-container">
+        <div class="card">
+          <div class="card-body">
+            <img src="img/people-buying-house_118813-13478.jpg" width="200px" alt="">
+            <h4><a href="#" class="text-danger  text-decoration-none">Buy a Home </a></h4>
+            <br><br>A real estate agent can provide you with a clear breakdown of costs so that you can avoid surprise expenses.
+
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <img src="img/real-estate-deals-agent-client-shaking-hands-people-buying-building-houses-market-growth-flat-vector-illustration-investment-construction-rent-property-concept_74855-22534.jpg" width="200px" alt="">
+            <h4><a href="#" class="text-danger  text-decoration-none">Sell a Home</a></h4>
+            <br><br>A real estate agent can provide you with a clear breakdown of costs so that you can avoid surprise expenses.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <img src="img/family-moving-countryside-area-realtor-shows-townhouse-house-rent-booking-hose-online-best-rental-property-real-estate-services-concept-bright-vibrant-violet-isolated-illustration_335657-1129.jpg" width="200px" alt="">
+           <h4><a href="#" class="text-danger  text-decoration-none">Rent a Home</a></h2> 
+            <br><br>A real estate agent can provide you with a clear breakdown of costs so that you can avoid surprise expenses.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <img src="img/mortgages-loan-finance-real-estate-concept_53876-127118.jpg" width="200px" alt="">
+            <h4><a href="#" class="text-danger  text-decoration-none">Invest in Property</a></h4>
+            <br><br>A real estate agent can provide you with a clear breakdown of costs so that you can avoid surprise expenses.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1 class="text-danger">About Us</h1>
+      <p>Welcome to Omaop Real Estate, where your property dreams become reality. We are your trusted partner in buying, selling, leasing, and investing in properties, driven by a deep understanding of the real estate market and a passion for helping clients achieve their goals.</p>
+
+      <h2 class="text-danger">Our Mission</h2>
+      <p>We aim to provide exceptional real estate services tailored to meet each client's unique needs, ensuring a seamless and rewarding experience with the utmost professionalism and care.</p>
+
+      <h2 class="text-danger">Our Values</h2>
+      <div class="values">
+          <div class="card">
+              <h3 class="text-danger">Integrity</h3>
+              <p>Honesty and transparency are at the heart of our dealings, building trust with our clients.</p>
+          </div>
+          <div class="card">
+              <h3 class="text-danger">Excellence</h3>
+              <p>We deliver the highest standard of service, paying attention to every detail.</p>
+          </div>
+          <div class="card">
+              <h3 class="text-danger">Innovation</h3>
+              <p>Utilizing the latest technology, we provide innovative solutions to give our clients a competitive edge.</p>
+          </div>
+          <div class="card">
+              <h3 class="text-danger">Community</h3>
+              <p>We are deeply invested in enhancing neighborhoods and supporting local development.</p>
+          </div>
+      </div>
+
+      <h2 class="text-danger">Our Achievements</h2>
+      <div class="achievements">
+          <div class="achievement-card">
+              <h2 id="agents" class="text-danger">18,446</h2>
+              <p>AGENTS & DEVELOPERS</p>
+          </div>
+          <div class="achievement-card">
+              <h2 id="listings" class="text-danger">114,778</h2>
+              <p>PROPERTY LISTINGS</p>
+          </div>
+          <div class="achievement-card">
+              <h2 id="areas" class="text-danger">294</h2>
+              <p>AREAS COVERED</p>
+          </div>
+          
+      </div>
+  </div>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+ <script src="anime.js">
+
+  
+ </script>
+ <script src="index.js"></script>
+ <script>
+  function countUp(element, endValue, duration) {
+  let startValue = 0;
+  let increment = endValue / (duration / 20);
+  let interval = setInterval(() => {
+      startValue += increment;
+      if (startValue >= endValue) {
+          clearInterval(interval);
+          startValue = endValue;
+      }
+      element.textContent = Math.floor(startValue).toLocaleString();
+  }, 100);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  countUp(document.getElementById('agents'), 18446, 2000);
+  countUp(document.getElementById('listings'), 114778, 2000);
+  countUp(document.getElementById('areas'), 294, 2000);
+});
+ </script>
+  </div>
+
+  <footer class="bg-danger text-white pt-4 pb-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>About Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Our Story</a></li>
+                    <li><a href="#" class="text-white">Meet the Team</a></li>
+                    <li><a href="#" class="text-white">Careers</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Services</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Property Consultancy</a></li>
+                    <li><a href="#" class="text-white">Caretaker</a></li>
+                    <li><a href="#" class="text-white">Facility Management</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Get in Touch</a></li>
+                    <li><a href="#" class="text-white">Support</a></li>
+                    <li><a href="#" class="text-white">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="#" class="text-white">About</a></li>
+                    <li><a href="#" class="text-white">Services</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center pt-3">
+            <p>&copy; 2024 Omaop Real Estate. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
